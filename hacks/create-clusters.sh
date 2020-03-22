@@ -4,8 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-set -x
-
 # scripts create a project and small clusters in GCP via gcloud cli
 PROJECT="multicluster-gitops-$(openssl rand -hex 3)"
 BILLING_ACCOUNT_ID=$(gcloud beta billing accounts list --format='get(name)' | grep -oE '[^/]+$')
