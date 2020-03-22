@@ -1,0 +1,4 @@
+FROM nginx
+
+ARG RND
+ENV _RND=$RND

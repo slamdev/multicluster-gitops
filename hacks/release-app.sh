@@ -5,13 +5,12 @@ set -o nounset
 set -o pipefail
 
 # script emulates a release process of new app by tagging a docker image with a random string and pushing it to a repo
-IMAGES="hashicorp/http-echo nginx"
 REPO="slamdev"
 
-for i in ${IMAGES}; do
-  img=$(echo "${i}" | rev | cut -d'/' -f 1 | rev)
+for i in Dockerfile-*; do
+  img=$(echo "${i}" | cut -d'-' -f2)
   rnd=$(openssl rand -hex 3)
-  docker pull "${i}"
-  docker tag "${i}" "${REPO}/${img}:${rnd}"
-  docker push "${REPO}/${img}:${rnd}"
+  tag="${REPO}/${img}:${rnd}"
+  docker build --file "${i}" --build-arg "RND=${rnd}" --tag "${tag}" .
+  docker push "${tag}"
 done
