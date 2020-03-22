@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - ../../bases/frontend
 images:
-  - name: nginx
-    newTag: alpine
+  - name: docker.io/slamdev/nginx
+    newTag: latest

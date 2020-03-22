@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: nginx
+          image: docker.io/slamdev/nginx
           ports:
             - name: http
               containerPort: 80
