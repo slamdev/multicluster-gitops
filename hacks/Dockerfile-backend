@@ -1,4 +1,4 @@
-FROM hashicorp/http-echo
+FROM jmalloc/echo-server
 
 ARG RND
 ENV _RND=$RND

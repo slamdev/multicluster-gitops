@@ -9,7 +9,8 @@ PROJECT=$(gcloud projects list --format='get(projectId)' | grep multicluster-git
 
 function uninstall() {
   local cluster=$1
-  local zone=$2
+  local zone
+  zone=$(gcloud container clusters list --format='get(zone)' --filter="${cluster}" --project="${PROJECT}")
   gcloud container clusters get-credentials "${cluster}" --zone="${zone}" --project="${PROJECT}"
   helm uninstall --namespace flux helm-operator
   helm uninstall --namespace flux flux
@@ -17,6 +18,6 @@ function uninstall() {
   kubectl delete -f https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
 }
 
-uninstall "dev-eu" "europe-west4-a"
-uninstall "prod-eu" "europe-west4-a"
-uninstall "prod-us" "europe-west3-a"
+uninstall "dev-eu"
+uninstall "prod-eu"
+uninstall "prod-us"
