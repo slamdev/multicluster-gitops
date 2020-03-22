@@ -1,0 +1,24 @@
+sync:
+  state: secret
+
+git:
+  url: "git@github.com:slamdev/multicluster-gitops"
+  # Path within git repo to locate Kubernetes manifests (relative path)
+  user: "gitops"
+  email: "gitops@gitops.com"
+  setAuthor: false
+  ciSkip: false
+  pollInterval: "30s"
+  # The secret name can be used to supply your own SSH key, instead of
+  # relying on Flux to generate one for you:
+  # 1. Generate a SSH key named identity: ssh-keygen -q -N "" -f ./identity
+  # 2. Create a Kubernetes secret: kubectl -n flux create secret generic flux-ssh --from-file=./identity
+  # 3. Delete the private key: rm ./identity
+  # 4. Add ./identity.pub as a deployment key with write access in your Git repo
+  # 5. Set the secret name (flux-ssh) below
+  secretName: "flux-github-identity"
+registry:
+  automationInterval: "30s"
+syncGarbageCollection:
+  enabled: true
+manifestGeneration: true
