@@ -11,8 +11,8 @@ CLUSTERS="dev-eu prod-eu prod-us"
 
 gcloud projects create "${PROJECT}"
 gcloud beta billing projects link "${PROJECT}" --billing-account "${BILLING_ACCOUNT_ID}"
-gcloud services enable container.googleapis.com --project=${PROJECT}
+gcloud services enable container.googleapis.com --project="${PROJECT}"
 
 for c in ${CLUSTERS}; do
-  gcloud container clusters create "${c}" --zone="europe-west4-a" --machine-type="g1-small" --num-nodes=2 --preemptible --project=${PROJECT}
+  gcloud container clusters create "${c}" --zone="europe-west4-a" --machine-type="g1-small" --num-nodes=2 --preemptible --project="${PROJECT}"
 done

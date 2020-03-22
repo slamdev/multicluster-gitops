@@ -9,8 +9,9 @@ PROJECT=$(gcloud projects list --format='get(projectId)' | grep multicluster-git
 
 function install() {
   local cluster=$1
-  local zone=$2
-  local path=$3
+  local path=$2
+  local zone
+  zone=$(gcloud container clusters list --format='get(zone)' --filter="${cluster}" --project="${PROJECT}")
   gcloud container clusters get-credentials "${cluster}" --zone="${zone}" --project="${PROJECT}"
   kubectl apply -f https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
   kubectl create namespace flux
@@ -22,9 +23,9 @@ function install() {
 
 ssh-keygen -q -N "" -f ./identity
 
-install "dev-eu" "europe-west4-a" "dev/eu"
-install "prod-eu" "europe-west4-a" "prod/eu"
-install "prod-us" "europe-west3-a" "prod/us"
+install "dev-eu" "dev/eu"
+install "prod-eu" "prod/eu"
+install "prod-us" "prod/us"
 
 kubectl get cm flux-github-identity-pub -nflux -oyaml
 
