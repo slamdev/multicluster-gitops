@@ -12,3 +12,17 @@ spec:
       containers:
       - image: docker.io/slamdev/http-echo:6e25f4
         name: app
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend-app
+  namespace: prod
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: app
+      containers:
+      - image: docker.io/slamdev/nginx:6f793b
+        name: app
