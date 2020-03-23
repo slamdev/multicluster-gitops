@@ -3,5 +3,7 @@ kind: Kustomization
 namespace: dev
 commonLabels:
   env: dev
+commonAnnotations:
+  flux.weave.works/tag.app: glob:dev-*
 resources:
   - ../../../bases/frontend

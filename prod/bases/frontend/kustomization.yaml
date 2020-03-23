@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: prod
 commonLabels:
   env: prod
+commonAnnotations:
+  flux.weave.works/tag.app: glob:prod-*
 replicas:
   - name: app
     count: 2
