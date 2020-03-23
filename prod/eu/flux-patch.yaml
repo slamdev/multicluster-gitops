@@ -10,7 +10,7 @@ spec:
       $setElementOrder/containers:
       - name: app
       containers:
-      - image: docker.io/slamdev/backend:dc7cd8
+      - image: docker.io/slamdev/backend:prod-92b1ef
         name: app
 ---
 apiVersion: extensions/v1beta1
