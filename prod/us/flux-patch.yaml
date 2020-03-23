@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend-app
+  namespace: prod
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: app
+      containers:
+      - image: docker.io/slamdev/frontend:ec6ab9
+        name: app
