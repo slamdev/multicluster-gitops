@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: docker.io/slamdev/backend:undefined
+          image: docker.io/slamdev/backend:a402a9
           ports:
             - name: http
               containerPort: 8080
