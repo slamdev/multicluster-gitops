@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  env: flux
+namespace: flux
+resources:
+  - namespace.yaml
+  - ../../../../ops-apps/flux
+  - ../../../../ops-apps/helm-operator
+patchesJson6902:
+  - target:
+      group: helm.fluxcd.io
+      version: v1
+      kind: HelmRelease
+      name: flux
+    patch: |-
+      - op: add
+        path: /spec/values
+        value:
+          git.path: clusters/prod/us

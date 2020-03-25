@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  env: prod
+namespace: prod
+resources:
+  - namespace.yaml
+  - app1
+  - app2

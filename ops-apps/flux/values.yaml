@@ -1,0 +1,15 @@
+sync:
+  state: secret
+git:
+  url: "git@github.com:slamdev/multicluster-gitops"
+  user: "gitops"
+  email: "gitops@gitops.com"
+  setAuthor: false
+  ciSkip: false
+  pollInterval: "30s"
+  secretName: "flux-github-identity"
+registry:
+  automationInterval: "30s"
+syncGarbageCollection:
+  enabled: true
+manifestGeneration: true

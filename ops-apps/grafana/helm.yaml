@@ -1,0 +1,13 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: app
+spec:
+  releaseName: app
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: grafana
+    version: 5.0.8
+  valuesFrom:
+    - secretKeyRef:
+        name: values
