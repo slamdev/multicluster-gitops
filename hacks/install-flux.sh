@@ -10,7 +10,7 @@ PROJECT=$(gcloud projects list --format='get(projectId)' | grep multicluster-git
 function install() {
   local cluster=$1
   local path=$2
-  echo "--- uninstalling $1 $2"
+  echo "--- installing $1 $2"
   local zone
   zone=$(gcloud container clusters list --format='get(zone)' --filter="${cluster}" --project="${PROJECT}")
   gcloud container clusters get-credentials "${cluster}" --zone="${zone}" --project="${PROJECT}"
