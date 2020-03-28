@@ -17,5 +17,5 @@ ${KUBEVAL} --version
 
 for f in ../clusters/*/*/kustomization.yaml; do
   echo "linting ${f}"
-  kustomize build "$(dirname "${f}")" | ${KUBEVAL} --strict --kubernetes-version=1.15.0 --skip-kinds=HelmRelease
+  kustomize build "$(dirname "${f}")" | ${KUBEVAL} --strict --kubernetes-version=1.14.7 --skip-kinds=HelmRelease
 done
