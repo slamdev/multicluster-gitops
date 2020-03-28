@@ -2,14 +2,12 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: helm-operator
-  annotations:
-    fluxcd.io/automated: "true"
 spec:
   releaseName: helm-operator
   chart:
     repository: https://charts.fluxcd.io
     name: helm-operator
-    version: 0.6.0
+    version: 0.7.0
   valuesFrom:
     - secretKeyRef:
         name: helm-operator-values
