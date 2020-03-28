@@ -2,6 +2,8 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: helm-operator
+  annotations:
+    fluxcd.io/automated: "true"
 spec:
   releaseName: helm-operator
   chart:
