@@ -17,4 +17,5 @@ patchesJson6902:
       - op: add
         path: /spec/values
         value:
-          git.path: clusters/dev/eu
+          git:
+            path: clusters/dev/eu
