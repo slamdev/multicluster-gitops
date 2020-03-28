@@ -15,7 +15,8 @@ function install() {
   gcloud container clusters get-credentials "${cluster}" --zone="${zone}" --project="${PROJECT}"
   kubectl apply -f https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
   kustomize build "../clusters/${path}" | kubectl apply -f -
-  helm install --namespace flux --repo=https://charts.fluxcd.io --values=../ops-apps/helm-operator/values.yaml helm-operator helm-operator
+  hv=$(yq r ../ops-apps/helm-operator/helm.yaml spec.chart.version)
+  helm install --namespace flux --repo=https://charts.fluxcd.io --values=../ops-apps/helm-operator/values.yaml --version "${hv}" helm-operator helm-operator
   kubectl create secret generic flux-github-identity --from-file=./identity -nflux
   kubectl create configmap flux-github-identity-pub --from-file=./identity.pub -nflux
 }
