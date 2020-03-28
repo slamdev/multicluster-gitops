@@ -3,6 +3,8 @@ kind: Kustomization
 commonLabels:
   env: staging
 namespace: staging
+commonAnnotations:
+  fluxcd.io/tag: "glob:staging-*"
 resources:
   - namespace.yaml
   - ../../../../business-apps/app1

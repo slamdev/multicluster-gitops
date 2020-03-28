@@ -3,6 +3,8 @@ kind: Kustomization
 commonLabels:
   env: prod
 namespace: prod
+commonAnnotations:
+  fluxcd.io/tag: "glob:prod-*"
 resources:
   - namespace.yaml
   - app2
