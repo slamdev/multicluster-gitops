@@ -7,4 +7,4 @@ spec:
   chart:
     repository: https://grafana.github.io/loki/charts
     name: promtail
-    version: 0.19.2
+    version: 0.19.1
