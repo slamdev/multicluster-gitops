@@ -38,7 +38,7 @@ spec:
       $setElementOrder/containers:
       - name: app
       containers:
-      - image: docker.io/slamdev/app2:team-a-8e7538
+      - image: docker.io/slamdev/app2:team-a-9fc6f4
         name: app
 ---
 apiVersion: apps/v1
