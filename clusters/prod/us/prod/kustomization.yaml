@@ -4,7 +4,7 @@ commonLabels:
   env: prod
 namespace: prod
 commonAnnotations:
-  fluxcd.io/tag: "glob:prod-*"
+  fluxcd.io/tag.app: "glob:prod-*"
 resources:
   - namespace.yaml
   - app2

@@ -4,7 +4,7 @@ commonLabels:
   env: team-b
 namespace: team-b
 commonAnnotations:
-  fluxcd.io/tag: "glob:team-b-*"
+  fluxcd.io/tag.app: "glob:team-b-*"
 resources:
   - namespace.yaml
   - ../../../../business-apps/app1

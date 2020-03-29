@@ -4,7 +4,7 @@ commonLabels:
   env: staging
 namespace: staging
 commonAnnotations:
-  fluxcd.io/tag: "glob:staging-*"
+  fluxcd.io/tag.app: "glob:staging-*"
 resources:
   - namespace.yaml
   - ../../../../business-apps/app1
