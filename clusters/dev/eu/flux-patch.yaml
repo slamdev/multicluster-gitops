@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  namespace: staging
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: app
+      containers:
+      - image: docker.io/slamdev/app1:prod-4a19fe
+        name: app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  namespace: team-b
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: app
+      containers:
+      - image: docker.io/slamdev/app1:prod-4a19fe
+        name: app
