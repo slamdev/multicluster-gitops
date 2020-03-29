@@ -10,11 +10,8 @@ git:
   secretName: "flux-github-identity"
 registry:
   automationInterval: "60s"
+  # TODO: option is available in master only, so it will make no effect with current version
   includeImage: "docker.io/slamdev/*"
-# remove as soon as issue is fixed
-# https://github.com/fluxcd/flux/issues/2936
-additionalArgs:
-  - "--registry-include-image=docker.io/slamdev/*"
 syncGarbageCollection:
   enabled: true
 manifestGeneration: true
