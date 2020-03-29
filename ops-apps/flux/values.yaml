@@ -11,6 +11,10 @@ git:
 registry:
   automationInterval: "60s"
   includeImage: "docker.io/slamdev/*"
+# remove as soon as issue is fixed
+# https://github.com/fluxcd/flux/issues/2936
+additionalArgs:
+  - "--registry-include-image=docker.io/slamdev/*"
 syncGarbageCollection:
   enabled: true
 manifestGeneration: true
