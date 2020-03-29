@@ -1,0 +1,14 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2
+  namespace: prod
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: app
+      containers:
+      - image: docker.io/slamdev/app2:prod-d04d3d
+        name: app
