@@ -24,7 +24,7 @@ spec:
       $setElementOrder/containers:
       - name: app
       containers:
-      - image: docker.io/slamdev/app2:prod-d04d3d
+      - image: docker.io/slamdev/app2:staging-c367f3
         name: app
 ---
 apiVersion: apps/v1
@@ -38,7 +38,7 @@ spec:
       $setElementOrder/containers:
       - name: app
       containers:
-      - image: docker.io/slamdev/app2:prod-d04d3d
+      - image: docker.io/slamdev/app2:staging-c367f3
         name: app
 ---
 apiVersion: apps/v1
