@@ -6,10 +6,11 @@ git:
   email: "gitops@gitops.com"
   setAuthor: false
   ciSkip: false
-  pollInterval: "30s"
+  pollInterval: "60s"
   secretName: "flux-github-identity"
 registry:
-  automationInterval: "30s"
+  automationInterval: "60s"
+  includeImage: "docker.io/slamdev/*"
 syncGarbageCollection:
   enabled: true
 manifestGeneration: true

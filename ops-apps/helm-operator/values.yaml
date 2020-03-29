@@ -1,7 +1,7 @@
-chartsSyncInterval: "10s"
+chartsSyncInterval: "60s"
 helm:
   versions: "v3"
 git:
-  pollInterval: "30s"
+  pollInterval: "60s"
   ssh:
     secretName: "flux-github-identity"
